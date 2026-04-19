@@ -1,0 +1,19 @@
+services:
+  antimeta-dashboard:
+    image: ghcr.io/garapatech/antimeta-dashboard:latest
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          memory: 512M
+    ports:
+      - "6767:6767"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/data
+    environment:
+      TZ: ${TZ}
