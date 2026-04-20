@@ -1,6 +1,6 @@
 services:
   antimeta-dashboard:
-    image: ghcr.io/garapatech/antimeta-dashboard:latest
+    image: ghcr.io/nayetdet/datasette:latest
     deploy:
       mode: replicated
       replicas: 1

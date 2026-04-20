@@ -1,6 +1,6 @@
-# AntiMeta Dashboard
+# Datasette
 
-Dashboard containerizado com [Datasette](https://datasette.io/) para explorar a base SQLite do AntiMeta. O projeto foi pensado para rodar com Docker, publicar uma imagem no GHCR e montar a base localmente a partir da pasta `data/`.
+Dashboard containerizado com [Datasette](https://datasette.io/) para explorar a base SQLite. O projeto foi pensado para rodar com Docker, publicar uma imagem no GHCR e montar a base localmente a partir da pasta `data/`.
 
 ## Visão geral
 
@@ -55,7 +55,7 @@ TZ=America/Fortaleza
 
 ## Executando com Docker Compose
 
-O `docker-compose.yml` usa a imagem publicada em `ghcr.io/garapatech/antimeta-dashboard:latest`.
+O `docker-compose.yml` usa a imagem publicada em `ghcr.io/nayetdet/datasette:latest`.
 
 ```bash
 docker compose up -d
@@ -78,7 +78,7 @@ docker compose down
 Se você estiver alterando o `Dockerfile` ou quiser testar a imagem localmente, faça o build manual:
 
 ```bash
-docker build -t antimeta-dashboard .
+docker build -t datasette .
 ```
 
 Depois execute o container montando a pasta `data/`:
@@ -88,7 +88,7 @@ docker run --rm \
   -p 6767:6767 \
   -e TZ=America/Fortaleza \
   -v "$PWD/data:/app/data" \
-  antimeta-dashboard
+  datasette
 ```
 
 ## Plugins instalados no Datasette
@@ -108,8 +108,8 @@ O workflow [`.github/workflows/build.yml`](.github/workflows/build.yml) publica 
 
 As tags publicadas são:
 
-- `ghcr.io/garapatech/antimeta-dashboard:latest`
-- `ghcr.io/garapatech/antimeta-dashboard:sha-<commit>`
+- `ghcr.io/nayetdet/datasette:latest`
+- `ghcr.io/nayetdet/datasette:sha-<commit>`
 
 ## Observações
 
