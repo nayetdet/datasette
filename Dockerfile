@@ -1,5 +1,5 @@
 FROM datasetteproject/datasette:latest
-ARG PORT=6767
+ARG PORT=8001
 ENV PORT=${PORT}
 
 RUN datasette install \
